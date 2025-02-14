@@ -25,6 +25,39 @@ const CalendarPage = () => {
     { code: 'NZD', flag: '🇳🇿' },
   ];
 
+
+  const currencyFlags = [
+    { code: 'EUR', flag: '🇪🇺' }, // Euro
+    { code: 'USD', flag: '🇺🇸' }, // US Dollar
+    { code: 'GBP', flag: '🇬🇧' }, // British Pound
+    { code: 'JPY', flag: '🇯🇵' }, // Japanese Yen
+    { code: 'AUD', flag: '🇦🇺' }, // Australian Dollar
+    { code: 'CAD', flag: '🇨🇦' }, // Canadian Dollar
+    { code: 'CHF', flag: '🇨🇭' }, // Swiss Franc
+    { code: 'NZD', flag: '🇳🇿' }, // New Zealand Dollar
+    { code: 'SEK', flag: '🇸🇪' }, // Swedish Krona
+    { code: 'NOK', flag: '🇳🇴' }, // Norwegian Krone
+    { code: 'DKK', flag: '🇩🇰' }, // Danish Krone
+    { code: 'ZAR', flag: '🇿🇦' }, // South African Rand
+    { code: 'HKD', flag: '🇭🇰' }, // Hong Kong Dollar
+    { code: 'SGD', flag: '🇸🇬' }, // Singapore Dollar
+    { code: 'MXN', flag: '🇲🇽' }, // Mexican Peso
+    { code: 'TRY', flag: '🇹🇷' }, // Turkish Lira
+    { code: 'RUB', flag: '🇷🇺' }, // Russian Ruble
+    { code: 'INR', flag: '🇮🇳' }, // Indian Rupee
+    { code: 'CNY', flag: '🇨🇳' }, // Chinese Yuan
+    { code: 'BRL', flag: '🇧🇷' }, // Brazilian Real
+    { code: 'THB', flag: '🇹🇭' }, // Thai Baht
+    { code: 'IDR', flag: '🇮🇩' }, // Indonesian Rupiah
+    { code: 'MYR', flag: '🇲🇾' }, // Malaysian Ringgit
+    { code: 'PHP', flag: '🇵🇭' }, // Philippine Peso
+    { code: 'PLN', flag: '🇵🇱' }, // Polish Zloty
+    { code: 'HUF', flag: '🇭🇺' }, // Hungarian Forint
+    { code: 'CZK', flag: '🇨🇿' }, // Czech Koruna
+    { code: 'ILS', flag: '🇮🇱' }, // Israeli Shekel
+    { code: 'KRW', flag: '🇰🇷' }, // South Korean Won
+  ];
+
   // Fetch events from the API
   const fetchEvents = async () => {
     setLoading(true); // Start loading
@@ -57,7 +90,7 @@ const CalendarPage = () => {
 // Convert event time to selected time zone (API data is in GMT-5)
 const convertTime = (time) => {
   // Parse the API time as GMT-5
-  const apiTimeZone = 'GMT-5'; // The API provides times in GMT-5
+  const apiTimeZone = 'Etc/GMT+5'; // API provides times in GMT-5
   const gmtTime = moment.tz(time, 'HH:mm', apiTimeZone);
 
   // Convert the time to the selected time zone
@@ -222,7 +255,9 @@ const getLastRefreshedTime = () => {
                   >
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold text-white flex items-center">
-                        {currencyFlag && <span className="mr-2">{currencyFlag}</span>}
+                        {currencyFlag ? <span className="mr-2">{currencyFlag}</span> : currencyFlags.find(
+                  (currency) => currency.code === event.Currency
+                )?.flag }
                         {event.Event}
                       </h3>
                       <p className="text-gray-300">{event.Currency} | {eventTime}</p>
