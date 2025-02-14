@@ -19,8 +19,7 @@ export function Header({ selectedTimeZone, onTimeZoneChange, currentTime }: Head
         </Link>
         <div className="flex items-center space-x-6">
           <Link to="/position-size-calculator" className="text-gray-300 hover:text-white transition-colors">Position Size Calculator</Link>
-          <Link to="/guide" className="text-gray-300 hover:text-white transition-colors">Guide</Link>
-          <Link to="/calendar" className="text-gray-300 hover:text-white transition-colors">Calendar</Link>
+          <Link to="/calendar" className="text-gray-300 hover:text-white transition-colors">Forex Event Calendar</Link>
         </div>
       </nav>
       

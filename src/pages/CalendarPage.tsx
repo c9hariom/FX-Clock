@@ -188,7 +188,7 @@ const getLastRefreshedTime = () => {
         
 
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6">Forex Event Calendar</h1>
+          <h1 className="text-5xl font-bold mb-6">Real-time Forex Event Calendar</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Track important forex events, market impacts, and manage your trading schedule.
           </p>

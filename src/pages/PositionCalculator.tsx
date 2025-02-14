@@ -107,7 +107,7 @@ export function PositionCalculator() {
               <span className="text-xl font-bold text-white">FX Clock</span>
             </Link>
             <div className="flex items-center space-x-6">
-              <Link to="/position-size-calculator" className="text-gray-300 hover:text-white transition-colors">Position Size Calculator</Link>
+              <Link to="/calendar" className="text-gray-300 hover:text-white transition-colors">Forex Event Calendar</Link>
             </div>
           </nav>
 
